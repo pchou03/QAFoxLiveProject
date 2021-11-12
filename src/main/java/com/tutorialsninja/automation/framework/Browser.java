@@ -5,6 +5,7 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
@@ -32,6 +33,12 @@ public class Browser {
 			WebDriverManager.iedriver().setup();
 			Base.driver = new InternetExplorerDriver();
 			log.info("Internet Explorer Browser is Started" + Base.driver.hashCode());
+			return Base.driver;
+		
+		case "edge":
+			WebDriverManager.edgedriver().setup();
+			Base.driver = new EdgeDriver();
+			log.info("EdgeDriver Browser is Started" + Base.driver.hashCode());
 			return Base.driver;
 
 		case "opera":
