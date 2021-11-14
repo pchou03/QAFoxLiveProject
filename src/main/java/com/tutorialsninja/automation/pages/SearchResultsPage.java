@@ -6,14 +6,19 @@ import org.openqa.selenium.support.PageFactory;
 
 import com.tutorialsninja.automation.base.Base;
 
-public class MyAccountPage {
+public class SearchResultsPage {
 
-	public MyAccountPage() {
-
+	public SearchResultsPage() {
 		PageFactory.initElements(Base.driver, this);
 
 	}
 
-	@FindBy(linkText = "Register for an affiliate account")
-	public static WebElement registerAffiliateAccount;
+	@FindBy(linkText = "Samsung SyncMaster 941BW")
+	public static WebElement samsungSyncMasterSearchResult;
+
+	@FindBy(linkText = "input[id='button-search']+h2+p")
+	public static WebElement noResultsMessage;
+	
+	
+	
 }
