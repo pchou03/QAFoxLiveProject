@@ -39,5 +39,22 @@ public class LoginPage {
 		Elements.TypeText(LoginPage.passwordField, password);
 		Elements.click(LoginPage.loginButton);
 	}
+	
+	//Reading login details from properties file
+	//OverLoadding- same method name but different parameter 
+	public static void doLogin() {
+		
+		//no need to call method with class reference because you are in same class
+		
+		//Elements.TypeTextIfElementPresent(LoginPage.emailField, Base.reader.getUsername());
+		Elements.TypeTextIfElementPresent(emailField, Base.reader.getUsername());
+		
+		//Elements.TypeText(LoginPage.passwordField, Base.reader.getPassword());
+		Elements.TypeText(passwordField, Base.reader.getPassword());
+		
+		//Elements.click(LoginPage.loginButton);
+		Elements.click(loginButton);
+		
+	}
 
 }

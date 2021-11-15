@@ -20,7 +20,7 @@ public class Browser {
 
 	public static WebDriver startBrowser() {
 		String browser = Base.reader.getBrowser().toLowerCase();
-		log.info("Selected Browser is: "+browser);
+		log.info("Selected Browser is: " + browser);
 		switch (browser) {
 
 		case "chrome":
@@ -34,7 +34,7 @@ public class Browser {
 			Base.driver = new InternetExplorerDriver();
 			log.info("Internet Explorer Browser is Started" + Base.driver.hashCode());
 			return Base.driver;
-		
+
 		case "edge":
 			WebDriverManager.edgedriver().setup();
 			Base.driver = new EdgeDriver();
@@ -65,16 +65,19 @@ public class Browser {
 		Base.driver.manage().window().maximize();
 	}
 
+	public static void openApplication() {
+
+		Base.driver.get(Base.reader.getUrl());
+
+	}
+
 	public static byte[] takeScreenshot() {
 		try {
-			return ((TakesScreenshot)Base.driver).getScreenshotAs(OutputType.BYTES);
-		}
-		catch(Exception e){
+			return ((TakesScreenshot) Base.driver).getScreenshotAs(OutputType.BYTES);
+		} catch (Exception e) {
 			log.info("Exception has Occured while taking screenshot");
 			return null;
 		}
-
-		
 
 	}
 }
